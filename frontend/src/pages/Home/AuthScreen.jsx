@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 
 const AuthScreen = () => {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    navigate("/signup?email=" + email);
   };
   return (
     <div className="hero-bg relative w-full overflow-x-hidden">
