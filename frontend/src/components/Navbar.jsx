@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LogOut, Menu, Search, X } from "lucide-react";
 import { useAuthStore } from "./../store/authUser";
 import { useContentStore } from "./../store/content";
@@ -7,13 +7,14 @@ import { useContentStore } from "./../store/content";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, logout } = useAuthStore();
+  const location = useLocation();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  const { setContentType } = useContentStore();
+  const { contentType, setContentType } = useContentStore();
 
   return (
-    <header className="max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20">
+    <header className="max-w-[1250px] mx-auto flex flex-wrap items-center justify-between p-4 h-20">
       <div className="flex items-center gap-10 z-50">
         <Link to="/">
           <img
@@ -24,22 +25,35 @@ const Navbar = () => {
         </Link>
 
         {/* desktop navbar items */}
-        <div className="hidden sm:flex gap-2 items-center">
+        <div className="hidden sm:flex gap-4 items-center">
           <Link
             to="/"
-            className="hover:underline"
+            className={`hover:underline ${
+              contentType == "movie" && location.pathname == "/"
+                ? "text-red-600"
+                : "text-white"
+            }`}
             onClick={() => setContentType("movie")}
           >
             Movies
           </Link>
           <Link
             to="/"
-            className="hover:underline"
+            className={`hover:underline ${
+              contentType == "tv" && location.pathname == "/"
+                ? "text-red-600"
+                : "text-white"
+            }`}
             onClick={() => setContentType("tv")}
           >
             Tv Shows
           </Link>
-          <Link to="/history" className="hover:underline">
+          <Link
+            to="/history"
+            className={`hover:underline ${
+              location.pathname == "/history" ? "text-red-600" : "text-white"
+            }`}
+          >
             Search History
           </Link>
         </div>
@@ -69,24 +83,34 @@ const Navbar = () => {
 
       {/* mobile navbar items */}
       {isMobileMenuOpen && (
-        <div className="w-full sm:hidden mt-4 z-50 bg-black border rounded border-gray-800">
+        <div className=" mt-4 w-screen p-2 flex flex-col gap-3 sm:hidden z-50 bg-black border rounded border-gray-800">
           <Link
             to={"/"}
-            className="block hover:underline p-2"
+            className={`block hover:underline ${
+              contentType == "movie" && location.pathname == "/"
+                ? "text-red-600"
+                : "text-white"
+            }`}
             onClick={() => setContentType("movie")}
           >
             Movies
           </Link>
           <Link
             to={"/"}
-            className="block hover:underline p-2"
+            className={`block hover:underline ${
+              contentType == "tv" && location.pathname == "/"
+                ? "text-red-600"
+                : "text-white"
+            }`}
             onClick={() => setContentType("tv")}
           >
             Tv Shows
           </Link>
           <Link
             to={"/history"}
-            className="block hover:underline p-2"
+            className={`block hover:underline ${
+              location.pathname == "/history" ? "text-red-600" : "text-white"
+            }`}
             onClick={toggleMobileMenu}
           >
             Search History

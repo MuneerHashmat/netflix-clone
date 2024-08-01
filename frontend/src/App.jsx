@@ -13,6 +13,9 @@ import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import Watch from "./pages/Watch";
 import Search from "./pages/Search";
+import History from "./pages/History";
+import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
@@ -33,6 +36,7 @@ function App() {
   console.log(user);
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -51,6 +55,11 @@ function App() {
           path="/search"
           element={user ? <Search /> : <Navigate to={"/login"} />}
         />
+        <Route
+          path="/history"
+          element={user ? <History /> : <Navigate to={"/login"} />}
+        />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Toaster />
     </Router>

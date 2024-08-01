@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import { ORIGINAL_IMG_BASE_URL, SMALL_IMG_BASE_URL } from "../utils/constants";
 import { getFormattedDate } from "./../utils/getFormattedDate";
 import WatchSkeleton from "../components/WatchSkeliton";
+import Footer from "../components/Footer";
 const Watch = () => {
   const { id } = useParams();
   const [trailers, setTrailers] = useState([]);
@@ -243,6 +244,7 @@ const Watch = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
