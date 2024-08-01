@@ -23,9 +23,7 @@ const Watch = () => {
   useEffect(() => {
     const getTrailers = async () => {
       try {
-        const res = await axios.get(
-          `https://muneer-netflix-clone.onrender.com/api/v1/${contentType}/trailers/${id}`
-        );
+        const res = await axios.get(`/api/v1/${contentType}/trailers/${id}`);
         setTrailers(res.data.trailers);
       } catch (error) {
         if (error.message.includes("404")) {
@@ -40,9 +38,7 @@ const Watch = () => {
   useEffect(() => {
     const getSimilarContent = async () => {
       try {
-        const res = await axios.get(
-          `https://muneer-netflix-clone.onrender.com/api/v1/${contentType}/similar/${id}`
-        );
+        const res = await axios.get(`/api/v1/${contentType}/similar/${id}`);
         setSimilarContent(res.data.similar);
       } catch (error) {
         if (error.message.includes("404")) {
@@ -57,9 +53,7 @@ const Watch = () => {
   useEffect(() => {
     const getContentDetails = async () => {
       try {
-        const res = await axios.get(
-          `https://muneer-netflix-clone.onrender.com/api/v1/${contentType}/details/${id}`
-        );
+        const res = await axios.get(`/api/v1/${contentType}/details/${id}`);
         setContent(res.data.content);
       } catch (error) {
         if (error.message.includes("404")) {

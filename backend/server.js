@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import authRoutes from "./routes/auth.route.js";
 import movieRoutes from "./routes/movie.route.js";
 import tvRoutes from "./routes/tv.route.js";
@@ -7,21 +8,20 @@ import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/database.js";
 import cookieParser from "cookie-parser";
 import { protectRoute } from "./middleware/protectRoute.js";
-import cors from "cors";
+
 const app = express();
 const PORT = ENV_VARS.PORT;
+const __dirname = path.resolve();
 
-const corsOptions = {
-  origin: true, // Allow all origins
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "*", // Allow all headers
-  credentials: true, // If you need to allow credentials (cookies, HTTP auth, etc.)
-  optionsSuccessStatus: 204,
-};
+if (ENV_VARS.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movie", protectRoute, movieRoutes);
