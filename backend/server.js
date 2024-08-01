@@ -7,11 +7,21 @@ import { ENV_VARS } from "./config/envVars.js";
 import { connectDB } from "./config/database.js";
 import cookieParser from "cookie-parser";
 import { protectRoute } from "./middleware/protectRoute.js";
+import cors from "cors";
 const app = express();
 const PORT = ENV_VARS.PORT;
 
+const corsOptions = {
+  origin: true, // Allow all origins
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "*", // Allow all headers
+  credentials: true, // If you need to allow credentials (cookies, HTTP auth, etc.)
+  optionsSuccessStatus: 204,
+};
+
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors(corsOptions));
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movie", protectRoute, movieRoutes);
