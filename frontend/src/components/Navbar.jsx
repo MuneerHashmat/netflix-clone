@@ -59,16 +59,21 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 items-center z-50">
+      <div className="flex gap-3 items-center z-50">
         <Link to={"/search"}>
-          <Search className="size-6 cursor-pointer" />
+          <Search className="size-6 cursor-pointer hover:scale-[1.01]" />
         </Link>
-        <img
-          src={user.image}
-          alt="Avatar"
-          className="h-8 rounded cursor-pointer"
+        <div className="relative">
+          <img
+            src={user.image}
+            alt="Avatar"
+            className="h-8 rounded cursor-pointer"
+          />
+        </div>
+        <LogOut
+          className="size-6 cursor-pointer hover:scale-[1.01]"
+          onClick={logout}
         />
-        <LogOut className="size-6 cursor-pointer" onClick={logout} />
         <div className="sm:hidden">
           {isMobileMenuOpen ? (
             <X className="size-6 cursor-pointer" onClick={toggleMobileMenu} />

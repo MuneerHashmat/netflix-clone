@@ -12,7 +12,9 @@ const History = () => {
   useEffect(() => {
     const getSearchHistory = async () => {
       try {
-        const res = await axios.get(`/api/v1/search/history`);
+        const res = await axios.get(
+          `https://muneer-netflix-clone.onrender.com/api/v1/search/history`
+        );
         setSearchHistory(res.data.content);
       } catch (error) {
         setSearchHistory([]);
