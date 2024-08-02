@@ -36,9 +36,13 @@ Welcome to the Netflix Clone project! This application is a full-stack web appli
 - 🚂 Express.js
 - 🔑 JWT for authentication
 
-## Database
+### Database
 
 - 🍃 MongoDB
+
+### API
+
+🎞️ TMDB
 
 ## Installation guide for local machine
 
