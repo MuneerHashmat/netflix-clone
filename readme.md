@@ -42,7 +42,7 @@ Welcome to the Netflix Clone project! This application is a full-stack web appli
 
 ### API
 
-🎞️ TMDB
+- 🎞️ TMDB
 
 ## Installation guide for local machine
 
