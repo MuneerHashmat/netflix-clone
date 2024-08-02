@@ -87,6 +87,9 @@ npm run dev
 npm run dev
 ```
 
+<br>
+<br>
+
 # API Documentation
 
 ## Base url
@@ -141,6 +144,12 @@ POST /api/v1/auth/logout
 ```
 
 ### Authentication check
+
+- Endpoint
+
+```
+Get /api/v1/auth//authCheck
+```
 
 ## Movies
 

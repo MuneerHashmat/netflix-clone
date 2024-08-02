@@ -51,6 +51,14 @@ POST /api/v1/auth/login
 POST /api/v1/auth/logout
 ```
 
+### Authentication check
+
+- Endpoint
+
+```
+Get /api/v1/auth//authCheck
+```
+
 ## Movies
 
 **❗❗These are protected routes only accessible after authentication and cookie setting**
