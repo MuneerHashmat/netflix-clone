@@ -3,7 +3,7 @@
 ## Base url
 
 ```
-https://muneer-netflix-clone.onrender.com/
+https://muneer-netflix-clone-xj0x.onrender.com/
 ```
 
 ## Authentication
