@@ -81,7 +81,7 @@ npm install
 
 ```shell
 //root folder
-npm run dev
+nodemon backend/server.js
 ```
 
 6. **Run the frontend**
