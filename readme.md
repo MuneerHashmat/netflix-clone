@@ -1,4 +1,4 @@
-<h1 align="center">Fullstack Netflix Clone 🎬</h1>
+<h1 align="center">🎬 Fullstack Netflix Clone 🎬</h1>
 
 ## Overview
 
