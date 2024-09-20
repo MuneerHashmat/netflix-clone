@@ -8,7 +8,7 @@ Welcome to the Netflix Clone project! This application is a full-stack web appli
 
 ## Demo
 
-### [Netflix Clone](https://muneer-netflix-clone-xj0x.onrender.com/)
+### [Netflix Clone](https://netflix-clone-muneer.onrender.com/)
 
 ## Features
 
@@ -99,7 +99,7 @@ npm run dev
 ## Base url
 
 ```
-https://muneer-netflix-clone-xj0x.onrender.com/
+https://netflix-clone-muneer.onrender.com/
 ```
 
 ## Authentication
