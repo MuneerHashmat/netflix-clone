@@ -24,7 +24,7 @@ const Watch = () => {
     const getTrailers = async () => {
       try {
         const res = await axios.get(`/api/v1/${contentType}/trailers/${id}`);
-        setTrailers(res.data.trailers);
+        setTrailers(res.data.trailers.reverse());
       } catch (error) {
         if (error.message.includes("404")) {
           setTrailers([]);
